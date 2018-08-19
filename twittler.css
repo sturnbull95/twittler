@@ -9,20 +9,27 @@ a:hover {
 
 
 header {
-  padding: 1em;
   position: relative;
 }
 p{
   text-align: center;
 }
 h1 {
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
   color: rgb(51,204,255);
 }
 
 h2 {
   font-size: 1.5em;
+}
+h3 {
+  font-size: 2em;
+  text-align: center;
+  color: rgb(0,0,0);
+  margin: auto;
+    width: 20%;
+    padding: 10px;
 }
 input,textarea{
   display: inline-block;
@@ -90,7 +97,16 @@ img {
   padding: 14px 20px;
   border-radius: 1px;
 }
-
+#highTweet{
+  background-color: rgb(255,99,71,.5);
+  width: 70%;
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+    width: 30%;
+    border: 2px solid green;
+    padding: 1px;
+}
 #tweet-writer {
   display: none;
   position: relative;
@@ -98,12 +114,6 @@ img {
   background: rgb(0, 128, 255);
   text-align: center;
 }
-
-.close-btn {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
 .toggle-btn{
-  transform: translateX(640%);
+  transform: translateX(660%);
 }

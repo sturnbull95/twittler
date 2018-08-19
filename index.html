@@ -10,13 +10,18 @@
       <h1> Twittler</h1>
       <p> by Steven Turnbull </p>
       <button class="btn tweet-writer-control toggle-btn"> Write a tweet</button>
+      <br><br>
+      <h3>Highest Used Tweet!</h3>
+        <section id = "highTweet">
+        </section>
+        <br>
     </header>
     <section id="tweet-writer">
       <h2>Write a tweet</h2>
-      <a class="fa fa-times close-btn tweet-writer-control"></a>
       <div class="row">
         <label for="visitorInput">username</label>
         <input type="text" id="visitorInput" name="visitorInput"></input>
+        <br><br>
       </div>
       <div class="row">
         <label for="message">message</label>
@@ -74,6 +79,25 @@
             this.colorRows();
             $moreTweets.html('New tweets being acquired');
           }
+          function getHighestTweet(){
+            var tagCount = {}
+            for(var i = 0; i < streams.home.length; i++){
+              if(streams.home[i].message.includes("#")){
+                var tag = streams.home[i].message.substring(streams.home[i].message.indexOf("#"))
+                if(!tagCount[tag]){
+                  tagCount[tag] = 1
+                }
+                else{
+                  tagCount[tag] += 1;
+                }
+              }
+            }
+            var max = Object.keys(tagCount).reduce((a, b) => tagCount[a] > tagCount[b] ? a : b);
+            $highTweet.html('<p><strong>' + max + '<strong></p>')
+            setTimeout(function() {
+              getHighestTweet();
+            }, 5000);
+          }
           function checkForTweets() {
             newTweetCount = counter();
             if (newTweetCount > originalTweetCount) {
@@ -118,10 +142,12 @@
             checkForTweets: checkForTweets,
             filterByUser: filterByUser,
             updateUserList: updateUserList,
-            clearFilter: clearFilter
+            clearFilter: clearFilter,
+            getHighestTweet:getHighestTweet
           };
         })();
         var $tweetContainer = $('#tweet-container');
+        var $highTweet = $('#highTweet')
         var $moreTweets = $('#more-tweets');
         var $clearFilter = $('#clear-filter');
         var $tweetWriter = $('#tweet-writer');
@@ -134,12 +160,14 @@
           read[index] = true;
           index -= 1;
         }
+        var highTweet = tweetEvents.getHighestTweet();
         tweetEvents.checkForTweets();
         tweetEvents.updateUserList($('.user'));
         tweetEvents.colorRows();
         $moreTweets.click(function() {
           tweetEvents.displayNewTweets();
           tweetEvents.clearFilter();
+          tweetEvents.getHighestTweet();
         });
         $clearFilter.click(function() {
           tweetEvents.clearFilter();
