@@ -1,0 +1,109 @@
+a {
+  color: rgb(0, 132, 180);
+  cursor: pointer;
+}
+
+a:hover {
+  color: rgba(0, 132, 180, 0.5);
+}
+
+
+header {
+  padding: 1em;
+  position: relative;
+}
+p{
+  text-align: center;
+}
+h1 {
+  font-size: 2em;
+  text-align: center;
+  color: rgb(51,204,255);
+}
+
+h2 {
+  font-size: 1.5em;
+}
+input,textarea{
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: 1px;
+}
+button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(203, 132, 180, 0.5);
+  border-radius: 5px;
+}
+
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+  background: rgb(255, 153, 51);
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+
+.tweet {
+  opacity: 0;
+  padding: 1px;
+  display: block;
+  text-align: center;
+}
+
+.blue {
+  background: rgb(175, 238, 238);
+}
+
+#more-tweets {
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 5px;
+  background: rgb(204,255,255);
+  text-align: center;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+#clear-filter {
+  display: none;
+  position: absolute;
+  margin: 0.5em;
+  font-size: 0.7em;
+}
+
+.smalltext {
+  font-size: 0.7em;
+}
+
+.message {
+  display: inline-block;
+  padding: 14px 20px;
+  border-radius: 1px;
+}
+
+#tweet-writer {
+  display: none;
+  position: relative;
+  padding: 20px;
+  background: rgb(0, 128, 255);
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+.toggle-btn{
+  transform: translateX(640%);
+}
